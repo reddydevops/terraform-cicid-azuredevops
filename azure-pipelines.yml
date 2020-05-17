@@ -38,7 +38,7 @@ steps:
     terraformVersion: '0.12.3'
 - task: AzureCLI@1
   inputs:
-    azureSubscription: '$(environment)-sp'
+    azureSubscription: 'ab9276f5-ede2-49b7-8620-bd26f4b38ca1'
     scriptLocation: 'inlineScript'
     inlineScript: 'terraform version'
   displayName: "Terraform Version"
