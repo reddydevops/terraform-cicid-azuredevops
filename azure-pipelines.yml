@@ -50,9 +50,9 @@ steps:
    # terraform init -backend-config="storage_account_name=$(tfBackendStorageAccountName)" -backend-config="container_name=$(tfBackendStorageContainerName)" -backend-config="access_key=$(tf-backend-sa-access-key)" -backend-config="key=$(tfBackendFileName)"
      terraform init
     echo '#######Terraform Plan########'
-   # terraform plan 
+     terraform plan 
     
     echo '#######Terraform Apply########'
-   # terraform apply out.plan
+     terraform apply out.plan
     
   displayName: 'Terraform Init, Plan and Apply '
