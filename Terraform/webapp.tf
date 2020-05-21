@@ -11,12 +11,12 @@
         features {}
 }
 resource "azurerm_resource_group" "dev" {
-  name     = "__appresourcegroup__"
-  location = "__appresourcelocation__"
+  name     = "terraform"
+  location = "South India"
 }
 
 resource "azurerm_app_service_plan" "dev" {
-  name                = "__appserviceplan__"
+  name                = "testtf"
   location            = "${azurerm_resource_group.dev.location}"
   resource_group_name = "${azurerm_resource_group.dev.name}"
 
