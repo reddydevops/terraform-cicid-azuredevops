@@ -1,3 +1,4 @@
+
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
@@ -25,12 +26,13 @@ steps:
 
   displayName: 'Verify that the environment parameter has been supplied to pipeline'
 
-#- task: AzureKeyVault@1
-#  inputs:
-#    azureSubscription: '$(environment)-sp'
-#    KeyVaultName: '$(environment)-pipeline-secrets-kv'
-#    SecretsFilter: 'tf-sp-id,tf-sp-secret,tf-tenant-id,tf-subscription-id,tf-backend-sa-access-key,aks-sp-id,aks-sp-secret'
-#  displayName: 'Get key vault secrets as pipeline variables'
+
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise (ab9276f5-ede2-49b7-8620-bd26f4b38ca1)'
+    KeyVaultName: 'spaccess'
+    SecretsFilter: '*'
+    
 
 - task: TerraformInstaller@0
   inputs:
@@ -50,7 +52,7 @@ steps:
    # terraform init -backend-config="storage_account_name=$(tfBackendStorageAccountName)" -backend-config="container_name=$(tfBackendStorageContainerName)" -backend-config="access_key=$(tf-backend-sa-access-key)" -backend-config="key=$(tfBackendFileName)"
      terraform init
     echo '#######Terraform Plan########'
-     terraform plan 
+     terraform plan -var="client_id=$(tf-sp-id)" -var="client_secret=$(tf-sp-secret)" -var="tenant_id=$(tf-tenant-id)" 
     
     echo '#######Terraform Apply########'
      terraform apply out.plan
