@@ -7,9 +7,9 @@
 	access_key  ="bonOwk0Pnr2koCnbmAp/H4QFE0MLi2CY1RZNZmYEGAafLfMvLQDvSnniX+jqqkYz27GxEQSIp3pVeVlOALFAGQ=="
 	}
 	}
-  provider "azurerm" {
-        features {}
-}
+  #provider "azurerm" {
+  #      features {}
+#}
 resource "azurerm_resource_group" "dev" {
   name     = "terraform"
   location = "South India"
