@@ -53,7 +53,7 @@ steps:
      terraform init
     echo '#######Terraform Plan########'
    #  terraform plan -var="client_id=$(tf-sp-id)" -var="client_secret=$(tf-sp-secret)" -var="tenant_id=$(tf-tenant-id)" 
-    terraform plan
+    terraform plan -out="out.plan"
     echo '#######Terraform Apply########'
      terraform apply out.plan
     
